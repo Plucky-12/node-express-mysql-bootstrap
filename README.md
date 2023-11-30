@@ -1,2 +1,12 @@
-# node-express-mysql-bootstrap
-使用node-express-mysql-bootstrap实现后台管理系统
+
+
+### 1.安装依赖
+
+```javascript
+	npm install or npm i
+```
+
+### 2.启动运行
+```javascript
+	npm run start
+```

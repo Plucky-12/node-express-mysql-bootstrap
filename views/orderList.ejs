@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>数据列表 - bootstrap中文后台管理系统</title>
+<link rel="icon" href="favicon.ico" type="image/ico">
+<meta name="keywords" content="后台管理系统">
+<meta name="description" content="基于Bootstrap的后台管理系统">
+<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+<link href="/stylesheets/fonts.css" rel="stylesheet">
+<link href="/stylesheets/style.css" rel="stylesheet">
+</head>
+  
+<body>
+    <!--页面主要内容-->
+    <main class="ftdms-layout-content">
+      
+      <div class="container-fluid" style="margin-bottom:90px;">
+        
+        <div class="row" style="margin-top:15px;">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-toolbar clearfix">
+			  
+                <form class="pull-right search-bar" id ="myform" action="/like"  method="get" role="form" style="max-width:400px">
+                   <div class="form-group col-md-4">
+                     <label for="type">状态</label>
+                     <div class="form-controls">
+                       <select name="selectVal" class="form-control" id="type"  onChange="submitForm()">
+					    <% orderList.forEach(function(item){  %>
+                         <option value="<%=item.title  %>"><%=item.title  %></option>
+						 <% } ) %>
+                       </select>
+                     </div>
+                   </div>
+                   <div class="form-group col-md-4">
+                     <label for="title">标题</label>
+                     <input type="text" class="form-control" id="title" name="like" value="" placeholder="请输入标题" />
+                   </div>
+					<div class="form-group col-md-4">
+						<label for="title">查询</label>
+				     <button class=" submenuitem form-control " href="pages_data.html" data-id="link553" data-index="553"> 搜索</button>
+					</div>
+				</form>
+				
+				
+				<!--新增数据-->
+				<div class="toolbar-btn-action">
+				  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+				    <div class="modal-dialog" role="document">
+				      <div class="modal-content">
+				        <div class="modal-header">
+				          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				          <h4 class="modal-title" id="exampleModalLabel">增加数据:</h4>
+				        </div>
+				        <div class="modal-body">
+						  <form action="/addOrder" enctype="multipart/form-data" method="post">
+				            <div class="form-group">
+				              <label for="recipient-name" class="control-label">标题：</label>
+				              <input type="text" class="form-control" id="recipient-name" name="title">
+				            </div>
+							<div class="form-group">
+							  <label for="recipient-name" class="control-label">作者：</label>
+							  <input type="text" class="form-control" id="recipient-name" name="author">
+							</div>
+							<div class="form-group">
+							  <label for="message-text" class="control-label">图片路径：</label>
+							  <input type="file" name="pic" class="upload-input" id="uploadInput" name="imgUrl">
+							</div>
+							<div class="form-group">
+							  <label for="recipient-name" class="control-label">阅读量：</label>
+							  <input type="text" class="form-control" id="recipient-name" name="readCount">
+							</div>
+							<div class="form-group">
+							  <label for="recipient-name" class="control-label">状态：</label>
+							  <input type="text" class="form-control" id="recipient-name" name="status">
+							</div>
+							<div class="modal-footer">
+							  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							  <button type="submit" class="btn btn-primary">提交数据</button>
+							</div>
+				          </form>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+				</div>  
+				  
+			    <!--删除数据-->
+			    <div class="toolbar-btn-action">
+					  <div class="modal fade" id="exampleModal1" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel">
+						<div class="modal-dialog" role="document">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <button typ112e="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							  <h4 class="modal-title" id="exampleModalLabel">删除数据</h4>
+							</div>
+							<div class="modal-body">
+							  <form action="" enctype="multipart/form-data" method="post">
+								<div class="form-group">
+								  <label for="recipient-name" class="control-label" style="color:red;font-size:18px"> 确定是否要删除?</label>
+								</div>
+								<div class="modal-footer">
+								  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+								  <a type="submit" class="btn btn-danger determineDel" >删除</a>
+								</div>
+							  </form>
+							</div>
+						  </div>
+						</div>
+					  </div>
+				</div>
+				
+			
+		
+                  <a class="btn btn-success m-r-5 submenuitem" href="pages_data.html" data-id="link553" data-index="553"> 启用</a>
+				  <a class="btn btn-warning m-r-5 submenuitem" href="pages_data.html" data-id="link554" data-index="554"> 禁用</a>
+				  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">新增</button>
+				  <button type="button" class="btn btn-danger btn-primary" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">删除</button>
+				  <button type="button" class="btn btn-danger btn-primary" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">修改</button>
+				  
+                </div>
+              
+			  
+					
+			  
+			  
+  
+			  
+			  
+			  </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th width="5">
+                          <label class="ftdms-checkbox checkbox-primary">
+                            <input type="checkbox" id="check-all"><span></span>
+                          </label>
+                        </th>
+                        <th>序号</th>
+                        <th>标题</th>
+                        <th>作者</th>
+                        <th>图片路径</th>
+                        <th>阅读量</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+					<% orderList.forEach(function(item){  %>
+                      <tr>
+                        <td>
+                          <label class="ftdms-checkbox checkbox-primary">
+                            <input type="checkbox" name="ids[]" value="1"><span></span>
+                          </label>
+                        </td>
+						<td><%= item.id %></td>
+                        <td><%= item.title %></td>
+                        <td><%= item.author %></td>
+                        <td><%= item.imgUrl %></td>
+                        <td><%= item.readCount %></td>
+                        <td><font class="text-success"><%= item.status %></font></td>
+                        <td>
+                          <div class="btn-group">
+                            <button class="btn btn-xs btn-default submenuitem update-item"    
+							 data-id="<%= item.id %>"
+							 data-title="<%= item.title %>"  
+							 data-author="<%= item.author %>"  
+							 data-readCount="<%= item.readCount %>"  
+							 data-status="<%= item.status %>"  
+							 data-toggle="modal" 
+							 data-target="#exampleModal2" data-whatever="@mdo"  title="编辑" data-toggle="tooltip"><i class="ftsucai-edit-2"></i></button>
+                            <button class="btn btn-xs btn-default submenuitem delete-item"   data-id="<%= item.id %>" id="exampleModal1" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo"  title="删除" data-toggle="tooltip"><i class="ftsucai-del-2"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+					 <% }) %>
+                    </tbody>
+                  </table>
+                </div>
+				
+				
+				
+				
+				
+				
+                <ul class="pagination" style ="width:100%">
+				 <% var preNum=10;var nextNum=10;%>
+				 
+				 <!--首页--> 
+				  <% if(pager.maxNum ==1) {%>
+						<li  class="disabled" ><a href="#">首页</a></li>
+				  <% } else{ %>
+						<li   ><a href="/orderList?page=1">首页</a></li>
+				  <% } %>
+				  
+				  <li class="disabled"  ><a >共<%= pager.maxNum%>条</a></li>
+				  
+				  
+				  
+				    <!--上一页 开始-->
+				  <% if(pager.pageCurrent ==1) {%>
+				  					<li  class="disabled" ><a href="#"><<</a></li>
+				  <% } else{ %>
+				  					<li class="disabled" ><a href="/orderList?page=<%= parseInt( pager.pageCurrent)-1 %>"><<</a> </li>
+				   <% } %>
+				   <!--上一页 结束-->
+				  
+				  
+				  
+				  <!--循环显示页码 开始--> 
+				   <% for(var i=preNum;i>0;i--) {%>
+				   <% if(parseInt( pager.pageCurrent)-i >0){ %>
+					<li ><a href="/orderList?page=<%= parseInt( pager.pageCurrent)-i%>"><%= parseInt( pager.pageCurrent)-i%></a></li>
+				   <% }} %>
+				  
+					<li class="active"><a href="/orderList?page=<%= pager.pageCurrent%>"><%= pager.pageCurrent%></a></li>
+					
+					
+				  <% for(var i=1;i<=nextNum;i++){ %>
+					<% if(parseInt( pager.pageCurrent)+i <= pager.pageCount){ %>
+					  <li><a href="/orderList?page=<%=  parseInt( pager.pageCurrent)+i%>"> 
+							<%= parseInt( pager.pageCurrent)+i %>
+						  </a>
+					  </li>
+				  <% }} %>
+				  
+				  
+				  
+				  
+				  
+				 <!--下一页 开始-->
+				 <% if(pager.pageCurrent == pager.pageCount) {%>
+					<li  class="disabled" ><a href="#">>></a></li>
+				 <% } else{ %>
+					<li class="disabled" ><a href="/orderList?page=<%= parseInt( pager.pageCurrent)+1 %>">>></a> </li>
+				  <% } %>
+				  <!--下一页 结束-->
+				  
+				  
+				  <!-- 循环显示页码 结束--> 
+                  <li class="disabled"><span>...</span></li>
+				  <li class="disabled" ><a>总<%= pager.pageCount%>页</a></li>
+				  
+				     <!--尾页--> 
+				  <% if(pager.maxNum ==0) {%>
+							<li  class="disabled" ><a href="#">尾页</a></li>
+				  <% } else{ %>
+							<li  class="" ><a href="/orderList?page=<%= pager.pageCount%>">尾页</a></li>
+				  <% } %>
+				  
+				 
+                </ul>
+       
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </main>
+    <!--End 页面主要内容-->
+
+
+
+
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+<script type="text/javascript" src="/javascripts/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="/javascripts/main.min.js"></script>
+<script type="text/javascript">
+// 触发form表单进行select搜索
+function submitForm(){
+	var form =document.getElementById("myform");
+	form.submit();
+}
+
+// 删除
+$(function() {
+    $('.delete-item').click(function() {
+		id = $(this).data("id")
+    });
+});
+
+// 删除
+$('.determineDel').click(function() {
+	window.location.href= `/del?id=${id} `
+});
+
+
+// 修改
+$(function() {
+var updateHtml = ""
+$('.update-item').click(function() {
+	id = $(this).data("id")
+	title = $(this).data("title")
+	author = $(this).data("author")
+	imgUrl = $(this).data("imgUrl")
+	readCount = $(this).data("readCount")
+	status = $(this).data("status")
+	
+	// window.location.href= `/update?id=${id} `
+	updateHtml = ` 
+		<!--修改数据-->
+		<div class="toolbar-btn-action">
+		  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+				<div class="modal-dialog isUpdate" role="document">
+				  <div class="modal-content isUpdate">
+					<div class="modal-header">
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  <h4 class="modal-title" id="exampleModalLabel">修改数据:</h4>
+					</div>
+					<div class="modal-body">
+					  <form action="/update" enctype="multipart/form-data" method="post">
+					  <div class="form-group">
+						<label for="recipient-name" class="control-label">id：</label>
+						<input type="text" class="form-control " id="recipient-name" name="id" value="${id}">
+					  </div>	
+						<div class="form-group">
+						  <label for="recipient-name" class="control-label">标题：</label>
+						  <input type="text" class="form-control" id="recipient-name" name="title" value="${title}">
+						</div>
+						<div class="form-group">
+						  <label for="recipient-name" class="control-label">作者：</label>
+						  <input type="text" class="form-control" id="recipient-name" name="author" value="${author}">
+						</div>
+						<div class="form-group">
+						  <label for="message-text" class="control-label">图片路径：</label>
+						  <input type="file" name="pic" class="upload-input" id="uploadInput" name="imgUrl" >
+						</div>
+						
+						<div class="form-group">
+						  <label for="recipient-name" class="control-label">阅读量：</label>
+						  <input type="text" class="form-control" id="recipient-name" name="readCount" value="${readCount}">
+						</div>
+						<div class="form-group">
+						  <label for="recipient-name" class="control-label">状态：</label>
+						  <input type="text" class="form-control" id="recipient-name" name="status" value="${status}">
+						</div>
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						  <button type="submit" class="btn btn-primary">提交数据</button>
+						</div>
+					  </form>
+					</div>
+				  </div>
+				</div>
+			  </div>
+		</div>  
+	`
+	
+	$('body').append(updateHtml);
+	});
+});
+
+
+
+$(function(){
+    $('.search-bar .dropdown-menu a').click(function() {
+        var field = $(this).data('field') || '';
+        $('#search-field').val(field);
+        $('#search-btn').html($(this).text() + ' <span class="caret"></span>');
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
