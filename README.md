@@ -15,27 +15,27 @@
 
 
 
-# Demo 
+Demo  
 | 
-│ ── ## bin  
-│      └── www 
-│ ── db
-│     └── mysql.js 
-│ ── public
+└── bin   
+│      └── www  
+└──db
+│     └── mysql.js  
+└──public 
 │     └── fonts
 │     └── stylesheets 
-│     └── javascripts
-│     └── upload  
-│ ── routes 
+│     └── javascripts 
+│     └── upload   
+└──routes  
 │     └── user ....多个
-│ ── views
+└──views
 │     └── user ......多个
-│ ── app.js
+└──app.js 
 │    
-│ ── package.json 
+└── package.json  
 │    
-│ ── package-lock.json 
+└── package-lock.json  
 │    
-└── sql
+└── sql 
     ├── user.sql
     └── orderlist.sql
