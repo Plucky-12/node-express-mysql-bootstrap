@@ -4,9 +4,12 @@
 
 ```javascript
 	npm install or npm i
+	cnpm install or cnpm i 
 ```
 
 ### 2.启动运行
 ```javascript
-	npm run start
+	1.npm run start
+	2.cd bin -> nodemon www 
 ```
+
