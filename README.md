@@ -12,10 +12,13 @@
 	1.npm run start
 	2.cd bin -> nodemon www 
 ```
-Demo 
+
+
+
+# Demo 
 | 
-│ ── bin 
-│      └── www
+│ ── ## bin  
+│      └── www 
 │ ── db
 │     └── mysql.js 
 │ ── public
