@@ -21,40 +21,38 @@ Demo  
 
 ── bin    
 
-│      └── www   
+│     ── www    
 
-── db 
-│     └── mysql.js   
+── db  
+│     ── mysql.js    
 
 ── public  
 
-│     └── fonts 
+│     ── fonts  
 
-│     └── stylesheets 
+│     ── stylesheets  
 
-│     └── javascripts 
+│     ── javascripts  
 
-│     └── upload   
+│     ── upload    
 
-└──routes   
+ ──routes    
 
-│     └── user ....多个
+│     ── user ....多个
 
-└──views
+ ──views 
 
-│     └── user ......多个
+│     ── user ....多个
 
-└──app.js 
-
-│    
-└── package.json  
+ ──app.js  
 
 │    
-└── package-lock.json  
+ ── package.json   
 
 │    
-└── sql 
+ ── package-lock.json   
 
-    ├── user.sql
-    
+│    
+ ── sql  
+    ├── user.sql 
     └── orderlist.sql
